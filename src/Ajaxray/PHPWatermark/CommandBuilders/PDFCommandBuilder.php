@@ -51,7 +51,7 @@ class PDFCommandBuilder extends AbstractCommandBuilder
         list($light, $dark) = $this->getDuelTextColor();
         list($offsetLight, $offsetDark) = $this->getDuelTextOffset();
 
-        return "convert $source -$anchor -quality 100 -density 300 $font -$light -annotate {$rotate}{$offsetLight} $text -$dark -annotate {$rotate}{$offsetDark} $text  $destination";
+        return "convert -density 300 $source -$anchor -quality 100 $font -$light -annotate {$rotate}{$offsetLight} $text -$dark -annotate {$rotate}{$offsetDark} $text  $destination";
     }
 
     private function getMarkerOpacity()
