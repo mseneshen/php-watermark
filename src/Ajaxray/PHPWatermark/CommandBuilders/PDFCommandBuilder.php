@@ -29,7 +29,7 @@ class PDFCommandBuilder extends AbstractCommandBuilder
         $anchor = $this->getAnchor();
         $offset = $this->getImageOffset();
 
-        return "convert $marker $opacity  miff:- | convert -density 100 $source null: - -$anchor -$offset -quality 100 -compose multiply -layers composite $destination";
+        return "convert $marker $opacity  miff:- | convert -density 300 $source null: - -$anchor -$offset -quality 100 -compose multiply -layers composite $destination";
     }
 
     /**
@@ -51,7 +51,7 @@ class PDFCommandBuilder extends AbstractCommandBuilder
         list($light, $dark) = $this->getDuelTextColor();
         list($offsetLight, $offsetDark) = $this->getDuelTextOffset();
 
-        return "convert $source -$anchor -quality 100 -density 100 $font -$light -annotate {$rotate}{$offsetLight} $text -$dark -annotate {$rotate}{$offsetDark} $text  $destination";
+        return "convert $source -$anchor -quality 100 -density 300 $font -$light -annotate {$rotate}{$offsetLight} $text -$dark -annotate {$rotate}{$offsetDark} $text  $destination";
     }
 
     private function getMarkerOpacity()
